@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace CollecteDonnees
 {
     internal class Webesponse
     {
-       public String GetLine()
+       public List<LineData> GetLine()
         {
             // Create a request for the URL. 		
             WebRequest request = WebRequest.Create("https://data.mobilites-m.fr/api/linesNear/json?x=5.73119705178461&y=45.184446886268645&dist=400&details=true");
@@ -24,7 +25,8 @@ namespace CollecteDonnees
             StreamReader reader = new StreamReader(dataStream);
             // Read the content.
             string responseFromServer = reader.ReadToEnd();
-            return responseFromServer;
+            List<LineData> myDeserializedClass = JsonConvert.DeserializeObject<List<LineData>>(responseFromServer);
+            return myDeserializedClass;
 
         }
     }
