@@ -16,7 +16,7 @@ namespace CollecteDonnees
 
             foreach ( LineData lignebus in bus)
             {
-                Console.WriteLine($"linedata {lignebus.name} , {lignebus.zone}" );
+                Console.WriteLine($"linedata {lignebus.name} , {lignebus.zone} , {lignebus.lon},{lignebus.id} ,{lignebus.lines}" );
             }
          
         }
