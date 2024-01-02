@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CollecteDonnees
 {
-    internal class LineData
+    public class LineData
     {
 
         [JsonProperty("id")]

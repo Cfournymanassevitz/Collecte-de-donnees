@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace ClassLibrary
 {
-    internal class RequestResponse
+    public class RequestResponse
     {
      
             public List<LineData> GetLine()
