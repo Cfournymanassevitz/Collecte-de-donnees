@@ -15,8 +15,7 @@ namespace CollecteDonnees
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 |
 SecurityProtocolType.Tls;
             Webesponse metroApi = new Webesponse();
-            Console.WriteLine(GetLine());
-
+            Console.WriteLine(metroApi.GetLine());
         }
     }
 }
