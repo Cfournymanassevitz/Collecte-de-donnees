@@ -1,10 +1,5 @@
 ﻿using System;
-
-https://www.newtonsoft.com/jsonschemausing System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
 
 namespace CollecteDonnees
 {
@@ -12,8 +7,7 @@ namespace CollecteDonnees
     {
         static void Main(string[] args)
         {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 |
-SecurityProtocolType.Tls;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             Webesponse metroApi = new Webesponse();
             Console.WriteLine(metroApi.GetLine());
         }
