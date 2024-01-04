@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TestProject
 {
-    internal interface IRequest
+    public interface IRequest
     {
-       public string DoRequest(string url);
+        string DoRequest(string url);
     }
 }
