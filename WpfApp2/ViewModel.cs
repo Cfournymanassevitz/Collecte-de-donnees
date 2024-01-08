@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using ClassLibrary;
+using CollecteDonnees;
 
 namespace WpfApp1
 {
@@ -17,8 +18,10 @@ namespace WpfApp1
         private double _latitude;
         private double _longitude;
         private int _rayon;
-        private ObservableCollection<List<LineData>> JeMenFous;
+        private ObservableCollection<List<LineData>> Lines { get; set; }
 
+
+           
         public double Latitude
         {
             get { return _latitude; }
@@ -32,8 +35,31 @@ namespace WpfApp1
                 }
             }
         }
-        public double Longitude { get; set; }
-        public int rayon { get; set; }
+
+             public double Longitude
+        {
+            get { return _longitude; }
+            set
+            {
+                if (_longitude != value)
+                {
+                    _longitude = value;
+                    // If the first name has changed, the FullName property needs to be udpated as well.
+                    OnPropertyChange("");
+                }
+            }
+        }
+        public int Rayon
+        {
+            get { return _rayon; }
+            set
+            {
+                if (value != _rayon)
+                {
+                    _rayon = value;
+                }
+            }
+        }
 
 
         // change les propriété first name en latitude etc et supp user
