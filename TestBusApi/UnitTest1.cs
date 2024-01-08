@@ -9,9 +9,12 @@ namespace TestBusApi
     [TestClass]
     public class UnitTest1
     {
+        // important sert a crée un test 
         [TestMethod]
+
         public void TestMethod1()
         {
+            //on instencie via l'interface le fakerequest puis on instancie la bonne class avec la methode
             IRequest request = new FakeRequest();
             BusApi fake = new BusApi(request);
             List<LineData> result = fake.GetLine();
@@ -21,7 +24,8 @@ namespace TestBusApi
 
         }
         [TestMethod]
-        public void TestMethod2()
+        //Test qui sera faux 
+        public void TestMethodEchec()
         {
             IRequest request = new FakeRequest();
             BusApi fake = new BusApi(request);

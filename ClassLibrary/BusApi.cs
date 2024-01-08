@@ -17,8 +17,9 @@ namespace CollecteDonnees
     public class BusApi
     {
         private IRequest _request {  get; set; }
-
-        public BusApi() : this(new Request())
+        // on crée deux constructeurs 
+        public BusApi() 
+            : this(new Request())
         {
         }
 
