@@ -16,14 +16,14 @@ namespace CollecteDonnees
         [JsonProperty("name")]
         public string name { get; set; }
 
-        [JsonProperty("lon")]
-        public double lon { get; set; }
+        [JsonProperty("Longitude")]
+        public double Longitude { get; set; }
 
-        [JsonProperty("lat")]
-        public double lat { get; set; }
+        [JsonProperty("Latitude")]
+        public double Latitude { get; set; }
 
-        [JsonProperty("zone")]
-        public string zone { get; set; }
+        [JsonProperty("Rayon")]
+        public int Rayon { get; set; }
 
         [JsonProperty("lines")]
         public List<string> lines { get; set; }

@@ -42,8 +42,9 @@
                 <GridView AllowsColumnReorder="true">
                     <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Nom" Width="auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Lon}" Header="Longitude" Width="auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Lat}" Header="Latitude" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Longitude}" Header="Longitude" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Latitude}" Header="Latitude" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Rayon}" Header="Rayon" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Lines}" Header="Lignes" Width="auto"/>
                 </GridView>
             </ListView.View>
