@@ -17,11 +17,15 @@ namespace WpfApp1
     // INotifyPropertyChanged notifies the View of property changes, so that Bindings are updated.
     sealed class MyViewModel : INotifyPropertyChanged
     {
-        private double _latitude;
-        private double _longitude;
-        private int _rayon;
-        public ObservableCollection<LineData> Lines { get; set; }
-
+        private double _latitude = 45.184446886268645;
+        private double _longitude = 5.73119705178461;
+        private int _rayon = 300;
+        private ObservableCollection<LineData> _lines = new ObservableCollection<LineData>();
+        public ObservableCollection<LineData> Lines
+        {
+            get { return _lines; }
+            set { _lines = value; }
+        }
 
 
         public double Latitude
@@ -93,7 +97,7 @@ namespace WpfApp1
         {
 
             //5.73119705178461, 45.184446886268645, 400
-            BusApi busApi = new BusApi(_latitude, _longitude, _rayon);
+            BusApi busApi = new BusApi( _longitude, _latitude , _rayon);
             List<LineData> lines = busApi.GetLine();
             Lines.Clear();
             foreach (LineData lineData in lines)

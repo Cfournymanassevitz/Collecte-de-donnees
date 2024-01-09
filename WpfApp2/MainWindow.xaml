@@ -27,11 +27,11 @@
         <!-- créer la partie pour afficher le first name -->
         <Label Grid.Column="0" Grid.Row="1" Margin="4" Content="Latitude:" HorizontalAlignment="Right"/>
         <!-- UpdateSourceTrigger=PropertyChanged makes sure that changes in the TextBoxes are immediately applied to the model. -->
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="4" Text="{Binding Latitude, StringFormat={}{0:N2}, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="4" Text="{Binding Latitude, StringFormat={}{0:N8}, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200"/>
 
         <!-- créer la partie pour afficher le last name -->
         <Label Grid.Column="0" Grid.Row="2" Margin="4" Content="Longitude:" HorizontalAlignment="Right"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="4" Text="{Binding Longitude, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"  Width="200"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="4" Text="{Binding Longitude,  StringFormat={}{0:N8},UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"  Width="200"/>
 
         <!-- créer la partie pour afficher l'âge -->
         <Label Grid.Column="0" Grid.Row="3" Margin="4" Content="Rayon:" HorizontalAlignment="Right"/>
@@ -39,11 +39,11 @@
 
 
         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="4" HorizontalAlignment="Center" FontWeight="Bold"/>
-        
-        <Button Grid.Column="1" Grid.Row="3"  Content="Rechercher: " HorizontalAlignment="Center"/>
+
+        <Button Grid.Column="1" Grid.Row="3"  Content="Rechercher:" Command="{ Binding AddCommand}" HorizontalAlignment="Center"/>
 
         
-        <ListView ItemsSource="{Binding Lines}" Grid.Row="8" Grid.Column="1" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <!--<ListView ItemsSource="{Binding Lines}" Grid.Row="8" Grid.Column="1" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListView.View>
                 <GridView AllowsColumnReorder="true">
                     <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" Width="auto"/>
@@ -53,8 +53,8 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Rayon}" Header="Rayon" Width="auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Lines}" Header="Lignes" Width="auto"/>
                 </GridView>
-            </ListView.View>
-        </ListView>
+            </ListView.View>-->
+        <!--</ListView>-->
 
 
 
