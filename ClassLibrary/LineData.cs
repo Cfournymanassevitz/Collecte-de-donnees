@@ -11,22 +11,22 @@ namespace CollecteDonnees
     {
 
         [JsonProperty("id")]
-        public string id { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty("name")]
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        [JsonProperty("Longitude")]
+        [JsonProperty("lon")]
         public double Longitude { get; set; }
 
-        [JsonProperty("Latitude")]
+        [JsonProperty("lat")]
         public double Latitude { get; set; }
 
-        [JsonProperty("Rayon")]
-        public int Rayon { get; set; }
+        [JsonProperty("zone")]
+        public string Zone { get; set; }
 
         [JsonProperty("lines")]
-        public List<string> lines { get; set; }
+        public List<string> Lines { get; set; }
     }
     
 }

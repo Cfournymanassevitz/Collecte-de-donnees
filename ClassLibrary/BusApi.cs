@@ -2,8 +2,10 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using TestProject;
@@ -12,26 +14,35 @@ using TestProject;
 namespace CollecteDonnees
 {
 
-    
+
 
     public class BusApi
     {
-        private IRequest _request {  get; set; }
-        // on crée deux constructeurs 
-        public BusApi() 
-            : this(new Request())
-        {
-        }
+        private IRequest Request;
+        private double Latitude { get; set; } 
+        private double Longitude { get; set; }
+        private int Rayon {  get; set; }
 
         public BusApi(IRequest request)
-        {
-            _request = request;
+        {  
+            Request = request;
         }
+  
+        public BusApi(double x , double y ,int  rayon)
+        {
+            Latitude = x;
+            Longitude = y;
+            Rayon = rayon;
+            Request = new Request();
+        }
+
 
         public List<LineData> GetLine()
         {
-            string urlBus = "https://data.mobilites-m.fr/api/linesNear/json?x=5.73119705178461&y=45.184446886268645&dist=400&details=true";
-            string json = _request.DoRequest(urlBus);
+            String urlBus =($"http://data.mobilites-m.fr/api/linesNear/json?x={Latitude.ToString(CultureInfo.InvariantCulture)}&y={Longitude.ToString(CultureInfo.InvariantCulture)}&dist={Rayon}&details=true");
+            //String urlBus = ("https://data.mobilites-m.fr/api/linesNear/json?x=5.709360123&y=45.176494599999984&dist=400&details=true");
+            string json = Request.DoRequest(urlBus);
+            Console.WriteLine(json);
             List<LineData> line = JsonConvert.DeserializeObject<List<LineData>>(json);
             return line;
 

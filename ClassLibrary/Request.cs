@@ -19,7 +19,7 @@ namespace ClassLibrary
 
         public string DoRequest(string url)
         {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             // Crée une requête pour une URL
             WebRequest request = WebRequest.Create(url);

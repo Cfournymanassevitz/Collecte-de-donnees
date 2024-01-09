@@ -6,8 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 using ClassLibrary;
 using CollecteDonnees;
+using TestProject;
 
 namespace WpfApp1
 {
@@ -18,10 +20,10 @@ namespace WpfApp1
         private double _latitude;
         private double _longitude;
         private int _rayon;
-        private ObservableCollection<List<LineData>> Lines { get; set; }
+        public ObservableCollection<LineData> Lines { get; set; }
 
 
-           
+
         public double Latitude
         {
             get { return _latitude; }
@@ -31,12 +33,12 @@ namespace WpfApp1
                 {
                     _latitude = value;
                     // If the first name has changed, the FullName property needs to be udpated as well.
-                    OnPropertyChange("");
+                    this.NotifyPropertyChanged(nameof(Latitude));
                 }
             }
         }
 
-             public double Longitude
+        public double Longitude
         {
             get { return _longitude; }
             set
@@ -45,7 +47,7 @@ namespace WpfApp1
                 {
                     _longitude = value;
                     // If the first name has changed, the FullName property needs to be udpated as well.
-                    OnPropertyChange("");
+                    this.NotifyPropertyChanged(nameof(Longitude));
                 }
             }
         }
@@ -57,25 +59,47 @@ namespace WpfApp1
                 if (value != _rayon)
                 {
                     _rayon = value;
+                    this.NotifyPropertyChanged(nameof(Rayon));
                 }
             }
         }
 
 
         // change les propriété first name en latitude etc et supp user
-      
+
 
 
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChange(string propertyName)
+        private void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
 
+        }
+
+        private ICommand _addCommand;
+        public ICommand AddCommand
+        {
+            get => _addCommand ?? (_addCommand = new RelayCommand(_toExecute => ValidateCoordinates(), _canExecute => { return true; }));
+            set { if (value != null) _addCommand = value; }
+
+        }
+        private void ValidateCoordinates()
+        {
+
+            //5.73119705178461, 45.184446886268645, 400
+            BusApi busApi = new BusApi(_latitude, _longitude, _rayon);
+            List<LineData> lines = busApi.GetLine();
+            Lines.Clear();
+            foreach (LineData lineData in lines)
+            {
+                Lines.Add(lineData);
+
+            }
         }
     }
 }
