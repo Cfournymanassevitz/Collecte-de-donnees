@@ -40,7 +40,6 @@ namespace CollecteDonnees
         public List<LineData> GetLine()
         {
             String urlBus =($"http://data.mobilites-m.fr/api/linesNear/json?x={Latitude.ToString(CultureInfo.InvariantCulture)}&y={Longitude.ToString(CultureInfo.InvariantCulture)}&dist={Rayon}&details=true");
-            //String urlBus = ("https://data.mobilites-m.fr/api/linesNear/json?x=5.709360123&y=45.176494599999984&dist=400&details=true");
             string json = Request.DoRequest(urlBus);
             Console.WriteLine(json);
             List<LineData> line = JsonConvert.DeserializeObject<List<LineData>>(json);

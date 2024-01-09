@@ -88,6 +88,7 @@ namespace WpfApp1
             set { if (value != null) _addCommand = value; }
 
         }
+       
         private void ValidateCoordinates()
         {
 
